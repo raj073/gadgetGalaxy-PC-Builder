@@ -135,18 +135,18 @@ const Navbar = () => {
 
           <li className="md:ml-8 text-lg md:my-0 my-7">
             <Link
-              href={"/"}
+              href={"/login"}
               className="inline-block w-full rounded-sm px-6 py-2 text-base text-center bg-gray-300 text-black hover:bg-teal-700 hover:text-white duration-300 font-primary"
             >
-              Sign in
+              Login
             </Link>
           </li>
           <li className="md:ml-8 text-lg md:my-0 my-7">
             <Link
-              href={"/"}
+              href={"/signup"}
               className="inline-block w-full rounded-sm px-6 py-2 text-base text-center bg-teal-600 text-black hover:bg-emerald-600-700 hover:text-white duration-300 font-primary"
             >
-              Sign in
+              Sign up
             </Link>
           </li>
 
