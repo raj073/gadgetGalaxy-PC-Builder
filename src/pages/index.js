@@ -1,4 +1,5 @@
 import RootLayout from "@/components/Layouts/RootLayout";
+import Hero from "@/components/UI/Hero";
 import Head from "next/head";
 
 const HomePage = () => {
@@ -7,7 +8,7 @@ const HomePage = () => {
       <Head>
         <title>gadgetGalaxy PC Builder</title>
       </Head>
-      <h1>This is Home Page</h1>
+      <Hero></Hero>
     </div>
   );
 };
