@@ -1,9 +1,33 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
 import RootLayout from "@/components/Layouts/RootLayout";
+import auth from "@/firebase/firebase.auth";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useRouter } from "next/router";
 
 const SignupPage = () => {
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+
+  const router = useRouter();
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  console.log(user);
+
+  const onSubmit = (data) => {
+    console.log("data:", data);
+    createUserWithEmailAndPassword(data.email, data.password);
+    router.push("/login");
+  };
+
   return (
     <div className="text-gray-900 flex justify-center mt-10">
       <div className="m-0 sm:m-10 bg-white sm:rounded-lg flex justify-center flex-1">
@@ -46,55 +70,63 @@ const SignupPage = () => {
               </div>
 
               <div className="mx-auto max-w-xs">
-                <input
-                  className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                  type="email"
-                  placeholder="Email"
-                />
-                <input
-                  className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                  type="password"
-                  placeholder="Password"
-                />
-                <button className="mt-5 tracking-wide font-semibold bg-green-400 text-black w-full py-4 rounded-lg hover:bg-green-700 hover:text-white transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
-                  <svg
-                    className="w-6 h-6 -ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                    <circle cx="8.5" cy="7" r="4" />
-                    <path d="M20 8v6M23 11h-6" />
-                  </svg>{" "}
-                  <span className="ml-2">Sign up</span>
-                </button>
-                <div className="flex justify-center items-center mt-6">
-                  <Link
-                    href="/login"
-                    target="_blank"
-                    className="inline-flex items-center font-bold text-blue-500 hover:text-blue-700 text-xs text-center"
-                  >
-                    <span>
-                      <svg
-                        className="h-6 w-6"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-                      </svg>
-                    </span>
-                    <span className="ml-2">
-                      If You have Already an account? Please Login
-                    </span>
-                  </Link>
-                </div>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <input
+                    className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                    {...register("email", { required: true })}
+                  />
+                  <input
+                    className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                    id="password"
+                    {...register("password", { required: true })}
+                  />
+                  <button className="mt-5 tracking-wide font-semibold bg-green-400 text-black w-full py-4 rounded-lg hover:bg-green-700 hover:text-white transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                    <svg
+                      className="w-6 h-6 -ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                      <circle cx="8.5" cy="7" r="4" />
+                      <path d="M20 8v6M23 11h-6" />
+                    </svg>{" "}
+                    <span className="ml-2">Sign up</span>
+                  </button>
+                  <div className="flex justify-center items-center mt-6">
+                    <Link
+                      href="/login"
+                      target="_blank"
+                      className="inline-flex items-center font-bold text-blue-500 hover:text-blue-700 text-xs text-center"
+                    >
+                      <span>
+                        <svg
+                          className="h-6 w-6"
+                          fill="none"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                        </svg>
+                      </span>
+                      <span className="ml-2">
+                        If You have Already an account? Please Login
+                      </span>
+                    </Link>
+                  </div>
+                </form>
               </div>
             </div>
           </div>

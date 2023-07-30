@@ -1,9 +1,26 @@
 import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import Link from "next/link";
+import { useAuth } from "@/contexts/AuthContext";
+import { useSignOut } from "react-firebase-hooks/auth";
+import auth from "@/firebase/firebase.auth";
+import toast from "react-hot-toast";
+import { useRouter } from "next/router";
+import { useSession, signOut as nextAuthSignOut } from "next-auth/react";
 
 const Navbar = () => {
   let [open, setOpen] = useState(false);
+  const { user } = useAuth();
+
+  const { data: session } = useSession();
+
+  const isLoggedIn = user || session?.user;
+
+  const router = useRouter();
+
+  const isGoogleLogin = session?.user;
+
+  const [firebaseSignOut, loading, error] = useSignOut(auth);
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -18,6 +35,25 @@ const Navbar = () => {
   const handleMouseLeave = () => {
     setDropdownOpen(false);
   };
+
+  const handleSignOut = async () => {
+    try {
+      if (isGoogleLogin) {
+        await nextAuthSignOut();
+        toast.success("User Logged Out Successfully", {
+          position: "top-right",
+        });
+        router.push("/login");
+      } else {
+        await firebaseSignOut();
+        toast.success("User Logged Out Successfully", {
+          position: "top-right",
+        });
+        router.push("/login");
+      }
+    } catch (error) {}
+  };
+
   return (
     <div className="shadow-md w-full fixed top-0 left-0 font-[Poppins] z-20">
       <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
@@ -133,27 +169,35 @@ const Navbar = () => {
             </div>
           </li>
 
-          <li className="md:ml-8 text-lg md:my-0 my-7">
-            <Link
-              href={"/login"}
-              className="inline-block w-full rounded-sm px-6 py-2 text-base text-center bg-gray-300 text-black hover:bg-teal-700 hover:text-white duration-300 font-primary"
-            >
-              Login
-            </Link>
-          </li>
-          <li className="md:ml-8 text-lg md:my-0 my-7">
+          {isLoggedIn ? (
+            <li className="md:ml-8 text-lg md:my-0 my-7">
+              <button
+                onClick={handleSignOut}
+                className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-1 px-4 border-b-4 border-orange-700 hover:border-orange-400 rounded"
+              >
+                Signout
+              </button>
+            </li>
+          ) : (
+            <li className="md:ml-8 text-lg md:my-0 my-7">
+              <Link
+                href={"/login"}
+                className="inline-block w-full rounded-sm px-6 py-2 text-base text-center bg-gray-300 text-black hover:bg-teal-700 hover:text-white duration-300 font-primary"
+              >
+                Login
+              </Link>
+            </li>
+          )}
+          {/* <li className="md:ml-8 text-lg md:my-0 my-7">
             <Link
               href={"/signup"}
               className="inline-block w-full rounded-sm px-6 py-2 text-base text-center bg-teal-600 text-black hover:bg-emerald-600-700 hover:text-white duration-300 font-primary"
             >
               Sign up
             </Link>
-          </li>
+          </li> */}
 
-          <button
-            className="bg-indigo-600 text-white font-[Poppins] py-2 px-6 rounded md:ml-8 hover:bg-indigo-400 
-    duration-500"
-          >
+          <button className="bg-indigo-600 text-white font-[Poppins] py-2 px-6 rounded md:ml-8 hover:bg-indigo-400 duration-500">
             PC Builder
           </button>
         </ul>

@@ -1,8 +1,36 @@
 import RootLayout from "@/components/Layouts/RootLayout";
+import auth from "@/firebase/firebase.auth";
 import Link from "next/link";
-import React from "react";
+import { useForm } from "react-hook-form";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useRouter } from "next/router";
+import toast from "react-hot-toast";
+import { useSession, signIn } from "next-auth/react";
 
 const LoginPage = () => {
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+
+  const router = useRouter();
+
+  const { data: session } = useSession();
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log("data:", data);
+    signInWithEmailAndPassword(data.email, data.password);
+    toast.success("User Logged In Successful", {
+      position: "top-right",
+    });
+    router.push("/");
+  };
+
   return (
     <div className="flex flex-col items-center justify-center mt-24">
       <div className="flex flex-col bg-white shadow-xl px-4 sm:px-6 md:px-8 lg:px-20 py-8 rounded-md w-full max-w-md">
@@ -11,6 +39,11 @@ const LoginPage = () => {
         </div>
 
         <button
+          onClick={() =>
+            signIn("google", {
+              callbackUrl: "http://localhost:3000/",
+            })
+          }
           type="button"
           className="py-2 px-4 mt-6 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
         >
@@ -35,10 +68,10 @@ const LoginPage = () => {
           </div>
         </div>
         <div className="mt-10">
-          <form action="#">
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col mb-4">
               <label
-                for="email"
+                htmlFor="email"
                 className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
               >
                 E-Mail Address:
@@ -48,9 +81,9 @@ const LoginPage = () => {
                   <svg
                     className="h-6 w-6"
                     fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
@@ -64,12 +97,13 @@ const LoginPage = () => {
                   name="email"
                   className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
                   placeholder="E-Mail Address"
+                  {...register("email", { required: true })}
                 />
               </div>
             </div>
             <div className="flex flex-col mb-4">
               <label
-                for="password"
+                htmlFor="password"
                 className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
               >
                 Password:
@@ -80,9 +114,9 @@ const LoginPage = () => {
                     <svg
                       className="h-6 w-6"
                       fill="none"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
                     >
@@ -97,6 +131,7 @@ const LoginPage = () => {
                   name="password"
                   className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
                   placeholder="Password"
+                  {...register("password", { required: true })}
                 />
               </div>
             </div>
@@ -111,9 +146,9 @@ const LoginPage = () => {
                   <svg
                     className="h-6 w-6"
                     fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
@@ -134,9 +169,9 @@ const LoginPage = () => {
               <svg
                 className="h-6 w-6"
                 fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
