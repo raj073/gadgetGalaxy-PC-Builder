@@ -4,9 +4,10 @@ import auth from "@/firebase/firebase.auth";
 import Head from "next/head";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useSession } from "next-auth/react";
-import PcBuilderInfos from "@/components/UI/PcBuilderInfos";
+import { useGetProductsQuery } from "@/redux/features/products/productsApi";
+import Products from "@/components/UI/Products";
 
-const HomePage = ({ pcBuilderInfo }) => {
+const HomePage = () => {
   const [user, loading, error] = useAuthState(auth);
 
   const { data: session } = useSession();
@@ -17,7 +18,7 @@ const HomePage = ({ pcBuilderInfo }) => {
         <title>gadgetGalaxy PC Builder</title>
       </Head>
       <Hero></Hero>
-      <PcBuilderInfos pcBuilderInfo={pcBuilderInfo}></PcBuilderInfos>
+      <Products></Products>
     </div>
   );
 };
@@ -26,16 +27,4 @@ export default HomePage;
 
 HomePage.getLayout = function getLayout(page) {
   return <RootLayout>{page}</RootLayout>;
-};
-
-export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:3000/api/pcbuilder");
-  const data = await res.json();
-
-  return {
-    props: {
-      pcBuilderInfo: data?.data,
-    },
-    revalidate: 10,
-  };
 };

@@ -19,16 +19,16 @@ async function run(req, res) {
       .db("gadgetGalaxy_pcbuilder")
       .collection("pcbuilder");
 
-    if (req.method === "GET") {
-      const pcBuilderInfo = await pcbuilderCollection.find({}).toArray();
-      res.send({ message: "success", status: 200, data: pcBuilderInfo });
-    }
-
-    // if (req.method === "POST") {
-    //   const news = req.body;
-    //   const result = await pcbuilderCollection.insertOne(news);
-    //   res.json(result);
+    // if (req.method === "GET") {
+    //   const pcBuilderInfo = await pcbuilderCollection.find({}).toArray();
+    //   res.send({ message: "success", status: 200, data: pcBuilderInfo });
     // }
+
+    app.get("/products", async (req, res) => {
+      const cursor = pcbuilderCollection.find({});
+      const products = await cursor.toArray();
+      res.send({ data: products });
+    });
   } finally {
   }
 }

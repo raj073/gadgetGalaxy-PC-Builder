@@ -1,158 +1,166 @@
-[
-  {
-    "image": "https://i.ibb.co/m8RyQcf/dsp.jpg",
-    "name": "DSP and Media Processor",
-    "category": "CPU / Processor",
-    "status": "In Stock",
-    "price": 299,
-    "description": "A digital signal processor (DSP) is a specialized microprocessor chip, with its architecture optimized for the operational needs of digital signal processing.",
-    "keyFeatures": {
-      "Brand": "STMicroelectronics",
-      "Model": "Model DSP"
-    },
-    "individualRating": 4.5,
-    "averageRating": 4.3,
-    "reviews": [
-      {
-        "user": "Max Well",
-        "rating": 4,
-        "comment": "Great microprocessor for gaming!"
+{
+  "products": [
+    {
+      "id": "1",
+      "image": "https://i.ibb.co/m8RyQcf/dsp.jpg",
+      "name": "DSP and Media Processor",
+      "category": "CPU / Processor",
+      "status": "In Stock",
+      "price": 299,
+      "description": "A digital signal processor (DSP) is a specialized microprocessor chip, with its architecture optimized for the operational needs of digital signal processing.",
+      "keyFeatures": {
+        "Brand": "STMicroelectronics",
+        "Model": "Model DSP"
       },
-      {
-        "user": "Denver",
-        "rating": 5,
-        "comment": "Very fast and efficient."
-      }
-    ]
-  },
-  {
-    "image": "https://i.ibb.co/mc3Ttrw/Motherboard.jpg",
-    "name": "HP 4440/4540S I3 Motherboard",
-    "category": "Motherboard",
-    "status": "In Stock",
-    "price": 149,
-    "description": "It is a high-quality motherboard with multiple ports and features.",
-    "keyFeatures": {
-      "Brand": "HP",
-      "Model": "4440/4540S I3"
+      "individualRating": 4.5,
+      "averageRating": 4.3,
+      "reviews": [
+        {
+          "user": "Max Well",
+          "rating": 4,
+          "comment": "Great microprocessor for gaming!"
+        },
+        {
+          "user": "Denver",
+          "rating": 5,
+          "comment": "Very fast and efficient."
+        }
+      ]
     },
-    "individualRating": 4.2,
-    "averageRating": 4.1,
-    "reviews": [
-      {
-        "user": "John Doe",
-        "rating": 3.5,
-        "comment": "Decent motherboard, but some compatibility issues."
+    {
+      "id": "2",
+      "image": "https://i.ibb.co/mc3Ttrw/Motherboard.jpg",
+      "name": "HP 4440/4540S I3 Motherboard",
+      "category": "Motherboard",
+      "status": "In Stock",
+      "price": 149,
+      "description": "It is a high-quality motherboard with multiple ports and features.",
+      "keyFeatures": {
+        "Brand": "HP",
+        "Model": "4440/4540S I3"
       },
-      {
-        "user": "Erik Doe",
-        "rating": 4.5,
-        "comment": "Great performance and stability."
-      }
-    ]
-  },
-  {
-    "image": "https://i.ibb.co/L9TX8xF/ram.jpg",
-    "name": "Transcend JetRam 4GB DDR4",
-    "category": "RAM",
-    "status": "In Stock",
-    "price": 79,
-    "description": "The Transcend JetRam 4GB DDR4 3200MHz Desktop RAM is made with genuine ETT grade, brand-name DRAM chips that have passed Transcend's stringent screening",
-    "keyFeatures": {
-      "Brand": "Transcend",
-      "Model": "JetRam 4GB DDR4"
+      "individualRating": 4.2,
+      "averageRating": 4.1,
+      "reviews": [
+        {
+          "user": "John Doe",
+          "rating": 3.5,
+          "comment": "Decent motherboard, but some compatibility issues."
+        },
+        {
+          "user": "Erik Doe",
+          "rating": 4.5,
+          "comment": "Great performance and stability."
+        }
+      ]
     },
-    "individualRating": 3.8,
-    "averageRating": 3.6,
-    "reviews": [
-      {
-        "user": "John Doe",
-        "rating": 3.5,
-        "comment": "No compatibility issues."
+    {
+      "id": "3",
+      "image": "https://i.ibb.co/L9TX8xF/ram.jpg",
+      "name": "Transcend JetRam 4GB DDR4",
+      "category": "RAM",
+      "status": "In Stock",
+      "price": 79,
+      "description": "The Transcend JetRam 4GB DDR4 3200MHz Desktop RAM is made with genuine ETT grade, brand-name DRAM chips that have passed Transcend's stringent screening",
+      "keyFeatures": {
+        "Brand": "Transcend",
+        "Model": "JetRam 4GB DDR4"
       },
-      {
-        "user": "Erik Doe",
-        "rating": 4.5,
-        "comment": "Great performance and stability."
-      }
-    ]
-  },
-  {
-    "image": "https://i.ibb.co/3rfPHf1/power.jpg",
-    "name": "Montech BETA 550 550W",
-    "category": "Power Supply Unit",
-    "status": "In Stock",
-    "price": 119,
-    "description": "The Montech Beta 550 Bronze is a 550W power supply that has been certified with 80 PLUS Bronze efficiency. It uses high-quality components.",
-    "keyFeatures": {
-      "Brand": "Montech",
-      "Model": "BETA 550"
+      "individualRating": 3.8,
+      "averageRating": 3.6,
+      "reviews": [
+        {
+          "user": "John Doe",
+          "rating": 3.5,
+          "comment": "No compatibility issues."
+        },
+        {
+          "user": "Erik Doe",
+          "rating": 4.5,
+          "comment": "Great performance and stability."
+        }
+      ]
     },
-    "individualRating": 4.0,
-    "averageRating": 3.9,
-    "reviews": [
-      {
-        "user": "GamerGirl45",
-        "rating": 4,
-        "comment": "Works well, but a bit noisy."
+    {
+      "id": "4",
+      "image": "https://i.ibb.co/3rfPHf1/power.jpg",
+      "name": "Montech BETA 550 550W",
+      "category": "Power Supply Unit",
+      "status": "In Stock",
+      "price": 119,
+      "description": "The Montech Beta 550 Bronze is a 550W power supply that has been certified with 80 PLUS Bronze efficiency. It uses high-quality components.",
+      "keyFeatures": {
+        "Brand": "Montech",
+        "Model": "BETA 550"
       },
-      {
-        "user": "HappyBuyer123",
-        "rating": 3.5,
-        "comment": "Average performance, not very efficient."
-      }
-    ]
-  },
-  {
-    "image": "https://i.ibb.co/k1rpP49/storage.jpg",
-    "name": "Toshiba Canvio Basics 1TB Portable",
-    "category": "Storage Device",
-    "status": "In Stock",
-    "price": 249,
-    "description": "The Canvio Basics portable external hard drive allows you to collect your files and take them anywhere, offering high storage capacity, simple plug and play",
-    "keyFeatures": {
-      "Brand": "Toshiba",
-      "Model": "HDTB510XK3AA"
+      "individualRating": 4.0,
+      "averageRating": 3.9,
+      "reviews": [
+        {
+          "user": "GamerGirl45",
+          "rating": 4,
+          "comment": "Works well, but a bit noisy."
+        },
+        {
+          "user": "HappyBuyer123",
+          "rating": 3.5,
+          "comment": "Average performance, not very efficient."
+        }
+      ]
     },
-    "individualRating": 4.3,
-    "averageRating": 4.2,
-    "reviews": [
-      {
-        "user": "Jack",
-        "rating": 4.5,
-        "comment": "Fast and reliable storage solution."
+    {
+      "id": "5",
+      "image": "https://i.ibb.co/k1rpP49/storage.jpg",
+      "name": "Toshiba Canvio Basics 1TB Portable",
+      "category": "Storage Device",
+      "status": "In Stock",
+      "price": 249,
+      "description": "The Canvio Basics portable external hard drive allows you to collect your files and take them anywhere, offering high storage capacity, simple plug and play",
+      "keyFeatures": {
+        "Brand": "Toshiba",
+        "Model": "HDTB510XK3AA"
       },
-      {
-        "user": "Morrison",
-        "rating": 4.0,
-        "comment": "Sufficient space, but could be faster."
-      }
-    ]
-  },
-  {
-    "image": "https://i.ibb.co/PWSp46Z/Monitor.jpg",
-    "name": "Amazon Basics 27 Inch Monitor",
-    "category": "Monitor",
-    "status": "In Stock",
-    "price": 399,
-    "description": "This is the description for Product 6. It is a high-resolution monitor for a superior visual experience.",
-    "keyFeatures": {
-      "Brand": "Amazon Basics",
-      "Model": "VESA Compatible"
+      "individualRating": 4.3,
+      "averageRating": 4.2,
+      "reviews": [
+        {
+          "user": "Jack",
+          "rating": 4.5,
+          "comment": "Fast and reliable storage solution."
+        },
+        {
+          "user": "Morrison",
+          "rating": 4.0,
+          "comment": "Sufficient space, but could be faster."
+        }
+      ]
     },
-    "individualRating": 4.8,
-    "averageRating": 4.7,
-    "reviews": [
-      {
-        "user": "Arnold",
-        "rating": 5,
-        "comment": "Stunning colors and sharp display."
+    {
+      "id": "6",
+      "image": "https://i.ibb.co/PWSp46Z/Monitor.jpg",
+      "name": "Amazon Basics 27 Inch Monitor",
+      "category": "Monitor",
+      "status": "In Stock",
+      "price": 399,
+      "description": "This is the description for Product 6. It is a high-resolution monitor for a superior visual experience.",
+      "keyFeatures": {
+        "Brand": "Amazon Basics",
+        "Model": "VESA Compatible"
       },
-      {
-        "user": "Daniel",
-        "rating": 5,
-        "comment": "Best monitor I've ever used!"
-      }
-    ]
-  }
-]
+      "individualRating": 4.8,
+      "averageRating": 4.7,
+      "reviews": [
+        {
+          "user": "Arnold",
+          "rating": 5,
+          "comment": "Stunning colors and sharp display."
+        },
+        {
+          "user": "Daniel",
+          "rating": 5,
+          "comment": "Best monitor I've ever used!"
+        }
+      ]
+    }
+  ]
+}
