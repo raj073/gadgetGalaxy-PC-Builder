@@ -1,166 +1,494 @@
-{
-  "products": [
-    {
-      "id": "1",
-      "image": "https://i.ibb.co/m8RyQcf/dsp.jpg",
-      "name": "DSP and Media Processor",
-      "category": "CPU / Processor",
-      "status": "In Stock",
-      "price": 299,
-      "description": "A digital signal processor (DSP) is a specialized microprocessor chip, with its architecture optimized for the operational needs of digital signal processing.",
-      "keyFeatures": {
-        "Brand": "STMicroelectronics",
-        "Model": "Model DSP"
-      },
-      "individualRating": 4.5,
-      "averageRating": 4.3,
-      "reviews": [
-        {
-          "user": "Max Well",
-          "rating": 4,
-          "comment": "Great microprocessor for gaming!"
-        },
-        {
-          "user": "Denver",
-          "rating": 5,
-          "comment": "Very fast and efficient."
-        }
-      ]
+[
+  {
+    "id": "1",
+    "image": "https://i.ibb.co/m8RyQcf/dsp.jpg",
+    "name": "DSP and Media Processor",
+    "category": "CPU/Processor",
+    "status": "In Stock",
+    "price": 299,
+    "description": "A digital signal processor (DSP) is a specialized microprocessor chip, with its architecture optimized for the operational needs of digital signal processing.",
+    "keyFeatures": {
+      "Brand": "STMicroelectronics",
+      "Model": "Model DSP"
     },
-    {
-      "id": "2",
-      "image": "https://i.ibb.co/mc3Ttrw/Motherboard.jpg",
-      "name": "HP 4440/4540S I3 Motherboard",
-      "category": "Motherboard",
-      "status": "In Stock",
-      "price": 149,
-      "description": "It is a high-quality motherboard with multiple ports and features.",
-      "keyFeatures": {
-        "Brand": "HP",
-        "Model": "4440/4540S I3"
+    "individualRating": 4.5,
+    "averageRating": 4.3,
+    "reviews": [
+      {
+        "user": "Max Well",
+        "rating": 4,
+        "comment": "Great microprocessor for gaming!"
       },
-      "individualRating": 4.2,
-      "averageRating": 4.1,
-      "reviews": [
-        {
-          "user": "John Doe",
-          "rating": 3.5,
-          "comment": "Decent motherboard, but some compatibility issues."
-        },
-        {
-          "user": "Erik Doe",
-          "rating": 4.5,
-          "comment": "Great performance and stability."
-        }
-      ]
+      {
+        "user": "Denver",
+        "rating": 5,
+        "comment": "Very fast and efficient."
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "image": "https://i.ibb.co/mc3Ttrw/Motherboard.jpg",
+    "name": "HP 4440/4540S I3 Motherboard",
+    "category": "Motherboard",
+    "status": "In Stock",
+    "price": 149,
+    "description": "It is a high-quality motherboard with multiple ports and features.",
+    "keyFeatures": {
+      "Brand": "HP",
+      "Model": "4440/4540S I3"
     },
-    {
-      "id": "3",
-      "image": "https://i.ibb.co/L9TX8xF/ram.jpg",
-      "name": "Transcend JetRam 4GB DDR4",
-      "category": "RAM",
-      "status": "In Stock",
-      "price": 79,
-      "description": "The Transcend JetRam 4GB DDR4 3200MHz Desktop RAM is made with genuine ETT grade, brand-name DRAM chips that have passed Transcend's stringent screening",
-      "keyFeatures": {
-        "Brand": "Transcend",
-        "Model": "JetRam 4GB DDR4"
+    "individualRating": 4.2,
+    "averageRating": 4.1,
+    "reviews": [
+      {
+        "user": "John Doe",
+        "rating": 3.5,
+        "comment": "Decent motherboard, but some compatibility issues."
       },
-      "individualRating": 3.8,
-      "averageRating": 3.6,
-      "reviews": [
-        {
-          "user": "John Doe",
-          "rating": 3.5,
-          "comment": "No compatibility issues."
-        },
-        {
-          "user": "Erik Doe",
-          "rating": 4.5,
-          "comment": "Great performance and stability."
-        }
-      ]
+      {
+        "user": "Erik Doe",
+        "rating": 4.5,
+        "comment": "Great performance and stability."
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "image": "https://i.ibb.co/L9TX8xF/ram.jpg",
+    "name": "Transcend JetRam 4GB DDR4",
+    "category": "RAM",
+    "status": "In Stock",
+    "price": 79,
+    "description": "The Transcend JetRam 4GB DDR4 3200MHz Desktop RAM is made with genuine ETT grade, brand-name DRAM chips that have passed Transcend's stringent screening",
+    "keyFeatures": {
+      "Brand": "Transcend",
+      "Model": "JetRam 4GB DDR4"
     },
-    {
-      "id": "4",
-      "image": "https://i.ibb.co/3rfPHf1/power.jpg",
-      "name": "Montech BETA 550 550W",
-      "category": "Power Supply Unit",
-      "status": "In Stock",
-      "price": 119,
-      "description": "The Montech Beta 550 Bronze is a 550W power supply that has been certified with 80 PLUS Bronze efficiency. It uses high-quality components.",
-      "keyFeatures": {
-        "Brand": "Montech",
-        "Model": "BETA 550"
+    "individualRating": 3.8,
+    "averageRating": 3.6,
+    "reviews": [
+      {
+        "user": "John Doe",
+        "rating": 3.5,
+        "comment": "No compatibility issues."
       },
-      "individualRating": 4.0,
-      "averageRating": 3.9,
-      "reviews": [
-        {
-          "user": "GamerGirl45",
-          "rating": 4,
-          "comment": "Works well, but a bit noisy."
-        },
-        {
-          "user": "HappyBuyer123",
-          "rating": 3.5,
-          "comment": "Average performance, not very efficient."
-        }
-      ]
+      {
+        "user": "Erik Doe",
+        "rating": 4.5,
+        "comment": "Great performance and stability."
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "image": "https://i.ibb.co/3rfPHf1/power.jpg",
+    "name": "Montech BETA 550 550W",
+    "category": "Power Supply Unit",
+    "status": "In Stock",
+    "price": 119,
+    "description": "The Montech Beta 550 Bronze is a 550W power supply that has been certified with 80 PLUS Bronze efficiency. It uses high-quality components.",
+    "keyFeatures": {
+      "Brand": "Montech",
+      "Model": "BETA 550"
     },
-    {
-      "id": "5",
-      "image": "https://i.ibb.co/k1rpP49/storage.jpg",
-      "name": "Toshiba Canvio Basics 1TB Portable",
-      "category": "Storage Device",
-      "status": "In Stock",
-      "price": 249,
-      "description": "The Canvio Basics portable external hard drive allows you to collect your files and take them anywhere, offering high storage capacity, simple plug and play",
-      "keyFeatures": {
-        "Brand": "Toshiba",
-        "Model": "HDTB510XK3AA"
+    "individualRating": 4.0,
+    "averageRating": 3.9,
+    "reviews": [
+      {
+        "user": "GamerGirl45",
+        "rating": 4,
+        "comment": "Works well, but a bit noisy."
       },
-      "individualRating": 4.3,
-      "averageRating": 4.2,
-      "reviews": [
-        {
-          "user": "Jack",
-          "rating": 4.5,
-          "comment": "Fast and reliable storage solution."
-        },
-        {
-          "user": "Morrison",
-          "rating": 4.0,
-          "comment": "Sufficient space, but could be faster."
-        }
-      ]
+      {
+        "user": "HappyBuyer123",
+        "rating": 3.5,
+        "comment": "Average performance, not very efficient."
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "image": "https://i.ibb.co/k1rpP49/storage.jpg",
+    "name": "Toshiba Canvio Basics 1TB Portable",
+    "category": "Storage Device",
+    "status": "In Stock",
+    "price": 249,
+    "description": "The Canvio Basics portable external hard drive allows you to collect your files and take them anywhere, offering high storage capacity, simple plug and play",
+    "keyFeatures": {
+      "Brand": "Toshiba",
+      "Model": "HDTB510XK3AA"
     },
-    {
-      "id": "6",
-      "image": "https://i.ibb.co/PWSp46Z/Monitor.jpg",
-      "name": "Amazon Basics 27 Inch Monitor",
-      "category": "Monitor",
-      "status": "In Stock",
-      "price": 399,
-      "description": "This is the description for Product 6. It is a high-resolution monitor for a superior visual experience.",
-      "keyFeatures": {
-        "Brand": "Amazon Basics",
-        "Model": "VESA Compatible"
+    "individualRating": 4.3,
+    "averageRating": 4.2,
+    "reviews": [
+      {
+        "user": "Jack",
+        "rating": 4.5,
+        "comment": "Fast and reliable storage solution."
       },
-      "individualRating": 4.8,
-      "averageRating": 4.7,
-      "reviews": [
-        {
-          "user": "Arnold",
-          "rating": 5,
-          "comment": "Stunning colors and sharp display."
-        },
-        {
-          "user": "Daniel",
-          "rating": 5,
-          "comment": "Best monitor I've ever used!"
-        }
-      ]
-    }
-  ]
-}
+      {
+        "user": "Morrison",
+        "rating": 4.0,
+        "comment": "Sufficient space, but could be faster."
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "image": "https://i.ibb.co/PWSp46Z/Monitor.jpg",
+    "name": "Amazon Basics 27 Inch Monitor",
+    "category": "Monitor",
+    "status": "In Stock",
+    "price": 399,
+    "description": "This is the description for Product 6. It is a high-resolution monitor for a superior visual experience.",
+    "keyFeatures": {
+      "Brand": "Amazon Basics",
+      "Model": "VESA Compatible"
+    },
+    "individualRating": 4.8,
+    "averageRating": 4.7,
+    "reviews": [
+      {
+        "user": "Arnold",
+        "rating": 5,
+        "comment": "Stunning colors and sharp display."
+      },
+      {
+        "user": "Daniel",
+        "rating": 5,
+        "comment": "Best monitor I've ever used!"
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "image": "https://i.ibb.co/N64jtTN/corei9.jpg",
+    "name": "Core i9 12900KS Processor",
+    "category": "CPU/Processor",
+    "status": "In stock",
+    "price": 600,
+    "description": "Intel 12th Gen Alder Lake Core i9 12900KS Processor ; Graphics Base Frequency. 300 MHz ; Graphics Dynamic Frequency Max. 1.55 GHz ; DirectX Support. 12",
+    "keyFeatures": {
+      "Brand": "Intel",
+      "Model": "12th Gen Core i9"
+    },
+    "individualRating": 4.7,
+    "averageRating": 4.8,
+    "reviews": [
+      {
+        "user": "Dalton",
+        "rating": 5,
+        "comment": "Very Fast and effective"
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "image": "https://i.ibb.co/V29Prh5/Xeon-E-2378.jpg",
+    "name": "Lake Xeon E-2378 2.60GHz-4.80GHz Processor",
+    "category": "CPU/Processor",
+    "status": "In stock",
+    "price": 500,
+    "description": "The Intel Xeon E-2378 was released in Q3/2021 and has 8 cores. The processor can process 16 threads simultaneously and uses a mainboard with the socket LGA 1200. In the Geekbench 5 benchmark, the Intel Xeon E-2378 achieved a result of 1,821 points (single-core) or 9,986 points (multi-core).",
+    "keyFeatures": {
+      "Brand": "Xeon",
+      "Model": "E-2378"
+    },
+    "individualRating": 4.5,
+    "averageRating": 4.6,
+    "reviews": [
+      {
+        "user": "Morrison",
+        "rating": 5,
+        "comment": "Well Structured"
+      }
+    ]
+  },
+  {
+    "id": "9",
+    "image": "https://i.ibb.co/xmkXwPs/gigabyte.png",
+    "name": "Gigabyte GA-H110M-DS2 6th/7th Gen Intel",
+    "category": "Motherboard",
+    "status": "In Stock",
+    "price": 100,
+    "description": "L3 cache varies with CPU. Supports 7th / 6th Generation Intel® Core™ Processors Dual Channel DDR4,2 DIMMs",
+    "keyFeatures": {
+      "Brand": "Gigabyte",
+      "Model": "GA-H110M-DS2"
+    },
+    "individualRating": 4.6,
+    "averageRating": 4.4,
+    "reviews": [
+      {
+        "user": "Mack Hardson",
+        "rating": 4.5,
+        "comment": "Decent motherboard, Working Smooth"
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "image": "https://i.ibb.co/fp8pf81/asrock.jpg",
+    "name": "ASRock H470M HDV Intel Motherboard",
+    "category": "Motherboard",
+    "status": "In Stock",
+    "price": 120,
+    "description": "The ASRock H470M-HDV/M.2 Micro ATX Motherboard supports 10th Gen Intel Core Processors (Socket 1200). It has a 7 Power Phase Design, it offers enhanced performance with the lowest temperature for advanced gamers",
+    "keyFeatures": {
+      "Brand": "ASRock",
+      "Model": "H470M"
+    },
+    "individualRating": 4.2,
+    "averageRating": 4.0,
+    "reviews": [
+      {
+        "user": "David",
+        "rating": 4.1,
+        "comment": "Well, Sockets Supported "
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "image": "https://i.ibb.co/wdk76W8/TwinMOS.jpg",
+    "name": "TwinMOS 16GB 3200MHz DDR4 SO-DIMM",
+    "category": "RAM",
+    "status": "In Stock",
+    "price": 100,
+    "description": "The TwinMOS 16GB 3200MHz DDR4 Laptop RAM complies with JEDEC international standards and has an operating voltage of only 1.2v, which saves a significant amount of electricity. It minimizes the heat created by the product while simultaneously maintaining the system's ambient temperature",
+    "keyFeatures": {
+      "Brand": "TwinMOS",
+      "Model": "DR4 SO-DIM"
+    },
+    "individualRating": 4.6,
+    "averageRating": 4.6,
+    "reviews": [
+      {
+        "user": "Donald",
+        "rating": 4.5,
+        "comment": "No compatibility issues."
+      }
+    ]
+  },
+  {
+    "id": "12",
+    "image": "-https://i.ibb.co/8gXMwm8/Lexar.jpg",
+    "name": "Lexar 32GB DDR4 3200MHz SODIMM",
+    "category": "RAM",
+    "status": "Out of Stock",
+    "price": 110,
+    "description": "The Lexar 32GB DDR4 3200MHz SODIMM Laptop RAM is a memory module designed specifically for laptops. It offers a performance upgrade that enhances the overall speed and responsiveness of your PC",
+    "keyFeatures": {
+      "Brand": "Lexar",
+      "Model": "DDR4 3200MHz SODIMM"
+    },
+    "individualRating": 4.1,
+    "averageRating": 4.0,
+    "reviews": [
+      {
+        "user": "Sunny",
+        "rating": 4.2,
+        "comment": "No compatibility issues."
+      }
+    ]
+  },
+  {
+    "id": "13",
+    "image": "https://i.ibb.co/vc6cCTJ/asus-power2.jpg",
+    "name": "ASUS TUF Gaming 1000G 1000W 80 Plus Gold",
+    "category": "Power Supply Unit",
+    "status": "In Stock",
+    "price": 200,
+    "description": "The ASUS ROG Strix 1000G 1000W 80 Plus Gold Power Supply is a top-of-the-line PSU that delivers efficient and reliable power to your gaming rig. But not just any ordinary power supply, the TUF Gaming 1000W Gold is specifically designed to withstand the test of time.",
+    "keyFeatures": {
+      "Brand": "ASUS",
+      "Model": "1000G 1000W 80"
+    },
+    "individualRating": 4.5,
+    "averageRating": 4.6,
+    "reviews": [
+      {
+        "user": "Emily Brown",
+        "rating": 4.3,
+        "comment": "Highly recommended. Great value for the price."
+      }
+    ]
+  },
+  {
+    "id": "14",
+    "image": "https://i.ibb.co/y4zchdg/MSI-MEG-Ai1300-P-PSU-Slide-Deck-2-1456x819.png",
+    "name": "MSI MEG Ai1300P PCIE5 1300W 80 Plus Platinum Fully Modular",
+    "category": "Power Supply Unit",
+    "status": "In Stock",
+    "price": 400,
+    "description": "The MSI MEG Ai1300P PCIE5 1300W Power Supply, is a cutting-edge solution designed to meet the power demands of high-performance gaming and computing systems. This power supply is engineered to deliver outstanding performance, efficiency, and reliability to ensure your system operates at its best.",
+    "keyFeatures": {
+      "Brand": "MSI",
+      "Model": "MEG Ai1300P PCIE5"
+    },
+    "individualRating": 4.5,
+    "averageRating": 4.6,
+    "reviews": [
+      {
+        "user": "Sarah Taylor",
+        "rating": 4.4,
+        "comment": "Impressive performance. Definitely worth the investment."
+      }
+    ]
+  },
+  {
+    "id": "15",
+    "image": "https://i.ibb.co/d6pWr6Y/Asustor-AS6602-T-NAS-Storage.jpg",
+    "name": "Asustor AS6602T NAS Storage",
+    "category": "Storage Device",
+    "status": "In Stock",
+    "price": 700,
+    "description": "The Asustor AS6602T NAS Storage is a high-performance network-attached storage device that comes with a variety of features and capabilities to support advanced storage requirements. It is designed to offer reliable data storage, fast data transfer speeds, and a range of backup and virtualization solutions.",
+    "keyFeatures": {
+      "Brand": "Asustor",
+      "Model": "AS6602T NAS"
+    },
+    "individualRating": 4.5,
+    "averageRating": 4.4,
+    "reviews": [
+      {
+        "user": "Sophia Green",
+        "rating": 4.5,
+        "comment": "Absolutely love this product! It exceeded my expectations."
+      }
+    ]
+  },
+  {
+    "id": "16",
+    "image": "https://i.ibb.co/cc5JKjX/Adata-SU650-240-GB-M-2-SATA-SSD.jpg",
+    "name": "Adata SU650 240GB M.2 SATA SSD",
+    "category": "Storage Device",
+    "status": "In Stock",
+    "price": 249,
+    "description": "With 3D NAND Flash, the SU650 M.2 2280 SSD features higher efficiency and increased reliability compared to 2D NAND SSDs, as well as higher capacities of up to 480GB. No matter using it for work or as a boot drive or storage device for your PC, you'll revel in enhanced performance. ",
+    "keyFeatures": {
+      "Brand": "Adata",
+      "Model": "SU650 240GB M.2"
+    },
+    "individualRating": 4.5,
+    "averageRating": 4.4,
+    "reviews": [
+      {
+        "user": "Olivia Clark",
+        "rating": 4.4,
+        "comment": "Impressive performance. Definitely worth the investment."
+      }
+    ]
+  },
+  {
+    "id": "17",
+    "image": "https://i.ibb.co/9sHVLN3/LG-32-ML600-M-32-Inch-IPS-Full-HD-HDR-75-Hz-Gaming.jpg",
+    "name": "LG 32ML600M 32 Inch IPS Full HD HDR 75Hz Gaming",
+    "category": "Monitor",
+    "status": "In Stock",
+    "price": 310,
+    "description": "The LG 32ML600M 32 Inchs IPS Full HD HDR 75Hz Gaming Monitor will let you enjoy the incredible detail and clarity of Full HD 1080p resolution and with IPS technology, response times are shortened, color reproduction is improved, allowing users to view the screen at virtually any angle.",
+    "keyFeatures": {
+      "Brand": "LG",
+      "Model": "32ML600M"
+    },
+    "individualRating": 4.7,
+    "averageRating": 4.6,
+    "reviews": [
+      {
+        "user": "Michael Johnson",
+        "rating": 8,
+        "comment": "The product is exactly as described. Works like a charm."
+      }
+    ]
+  },
+  {
+    "id": "18",
+    "image": "https://i.ibb.co/K2D6v0G/Asus-ROG-Swift-PG259-QNR.jpg",
+    "name": "Asus ROG Swift PG259QNR 24.5 inch 360Hz FHD eSports G-SYNC Gaming",
+    "category": "Monitor",
+    "status": "In Stock",
+    "price": 990,
+    "description": "Asus ROG Swift PG259QNR Gaming Monitor comes with 24.5-inch FHD (1920 x 1080) fast IPS gaming monitor with 360 Hz refresh rate, 1ms(GTG) Response Time designed for professional eSports gamers.",
+    "keyFeatures": {
+      "Brand": "Asus",
+      "Model": "ROG Swift PG259QNR"
+    },
+    "individualRating": 4.4,
+    "averageRating": 4.3,
+    "reviews": [
+      {
+        "user": "Matthew Scott",
+        "rating": 4.4,
+        "comment": "Highly recommended. Great value for the price."
+      }
+    ]
+  },
+  {
+    "id": "19",
+    "image": "https://i.ibb.co/BrZyYxj/Redragon-GW800.jpg",
+    "name": "Redragon GW800 HITMAN 1080P Webcam",
+    "category": "Others",
+    "status": "In Stock",
+    "price": 50,
+    "description": "The Redragon GW800 HITMAN 1080P Webcam features an advanced optical lens with a fix-focus and light correction function, the webcam will get the picture fixed focus whether in light/dark environments. It features 30 FPS with Fixed Focus. Plus it has Auto Control for Saturation, Contrast, Acutance, White Balance, and Exposure. You will always look great and natural on camera in any lighting condition.",
+    "keyFeatures": {
+      "Brand": "Redragon",
+      "Model": "GW800 HITMAN"
+    },
+    "individualRating": 4.2,
+    "averageRating": 4.1,
+    "reviews": [
+      {
+        "user": "Alex Turner",
+        "rating": 4.2,
+        "comment": "This product is a game-changer! I can't imagine life without it."
+      }
+    ]
+  },
+  {
+    "id": "20",
+    "image": "https://i.ibb.co/R3qXX01/HP-Scanjet.jpg",
+    "name": "HP Scanjet Enterprise Flow 7000 s3 Sheet-Feed Scanner",
+    "category": "Others",
+    "status": "In Stock",
+    "price": 900,
+    "description": "The Scanjet Enterprise Flow 7000 s3 Sheet-feed Scanner from HP makes it simple to scan paper documents into 600 dpi files. This efficient ADF scanner can scan documents at up to 150 pm and 75 ppm, respectively, with automatic duplexing enabled and set to 300 dpi.",
+    "keyFeatures": {
+      "Brand": "HP",
+      "Model": "Scanjet 7000"
+    },
+    "individualRating": 4.4,
+    "averageRating": 4.3,
+    "reviews": [
+      {
+        "user": "Lily Martinez",
+        "rating": 4.3,
+        "comment": "Highly impressed with the quality and functionality. A must-buy!"
+      }
+    ]
+  },
+  {
+    "id": "21",
+    "image": "https://i.ibb.co/fv1djCY/Havit-M9032.jpg",
+    "name": "Havit M9032 1.28 inch Touch Screen Bluetooth Calling Smart Watch",
+    "category": "Others",
+    "status": "In Stock",
+    "price": 900,
+    "description": "The Havit M9032 Bluetooth Calling Smart Watch has several useful features to enhance your daily life, including sleep monitoring, message reminders, sedentary reminders, and the ability to take photos. It also offers Bluetooth calling, allowing you to easily answer incoming calls.",
+    "keyFeatures": {
+      "Brand": "Havit",
+      "Model": "M9032 1.28"
+    },
+    "individualRating": 4.5,
+    "averageRating": 4.4,
+    "reviews": [
+      {
+        "user": "Lucas Evans",
+        "rating": 4.5,
+        "comment": "This product has made my life so much easier. Thank you!"
+      }
+    ]
+  }
+]

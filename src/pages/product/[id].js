@@ -10,21 +10,6 @@ const ProductDetailsPage = () => {
 
   const { data, isLoading, error } = useGetSingleProductQuery(id);
 
-  // const {
-  //   image,
-  //   name,
-  //   description,
-  //   category,
-  //   status,
-  //   price,
-  //   individualRating,
-  //   averageRating,
-  //   keyFeatures,
-  //   reviews,
-  // } = data;
-
-  console.log(data);
-
   return (
     <div className="flex flex-col justify-center mt-10 mx-auto font-[Poppins]">
       <h1 className="text-left md:ml-48 ml-20 text-3xl text-lime-800 mt-20">

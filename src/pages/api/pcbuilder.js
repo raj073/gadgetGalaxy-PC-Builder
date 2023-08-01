@@ -23,12 +23,6 @@ async function run(req, res) {
     //   const pcBuilderInfo = await pcbuilderCollection.find({}).toArray();
     //   res.send({ message: "success", status: 200, data: pcBuilderInfo });
     // }
-
-    app.get("/products", async (req, res) => {
-      const cursor = pcbuilderCollection.find({});
-      const products = await cursor.toArray();
-      res.send({ data: products });
-    });
   } finally {
   }
 }

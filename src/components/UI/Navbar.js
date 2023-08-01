@@ -95,7 +95,7 @@ const Navbar = () => {
               onMouseLeave={handleMouseLeave}
             >
               <Link
-                href="#"
+                href="/"
                 className="text-gray-800 hover:text-blue-800 hover:font-semibold duration-500"
               >
                 Category
@@ -109,7 +109,7 @@ const Navbar = () => {
                 <ul className="space-y-2">
                   <li>
                     <Link
-                      href="#"
+                      href="/cpu"
                       className="block px-4 py-2 text-base text-gray-600 rounded-md hover:bg-gray-100 hover:text-black"
                     >
                       CPU / Processor
@@ -117,7 +117,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      href="#"
+                      href="/motherboard"
                       className="block px-4 py-1 text-base text-gray-600 rounded-md hover:bg-gray-100 hover:text-black"
                     >
                       Motherboard
@@ -125,7 +125,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      href="#"
+                      href="/ram"
                       className="block px-4 py-1 text-base text-gray-600 rounded-md hover:bg-gray-100 hover:text-black"
                     >
                       RAM
@@ -133,7 +133,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      href="#"
+                      href="/power"
                       className="block px-4 py-1 text-base text-gray-600 rounded-md hover:bg-gray-100 hover:text-black"
                     >
                       Power Supply Unit
@@ -141,7 +141,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      href="#"
+                      href="/storage"
                       className="block px-4 py-1 text-base text-gray-600 rounded-md hover:bg-gray-100 hover:text-black"
                     >
                       Storage Device
@@ -149,7 +149,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      href="#"
+                      href="/monitor"
                       className="block px-4 py-1 text-base text-gray-600 rounded-md hover:bg-gray-100 hover:text-black"
                     >
                       Monitor
@@ -157,7 +157,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link
-                      href="#"
+                      href="/others"
                       className="block px-4 py-1 text-base text-gray-600 rounded-md hover:bg-gray-100 hover:text-black"
                     >
                       Others
