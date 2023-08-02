@@ -14,7 +14,7 @@ const Product = ({ product }) => {
     individualRating,
   } = product;
   return (
-    <div className="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500">
+    <div className="max-w-sm bg-white px-6 pt-6 pb-2 rounded-xl shadow-lg transform hover:scale-105 transition duration-500 font-[Poppins]">
       <h3 className="mb-3 text-xl text-center font-bold text-indigo-600">
         {category}
       </h3>

@@ -162,7 +162,6 @@ const LoginPage = () => {
         <div className="flex justify-center items-center mt-6">
           <Link
             href="/signup"
-            target="_blank"
             className="inline-flex items-center font-bold text-blue-500 hover:text-blue-700 text-xs text-center"
           >
             <span>

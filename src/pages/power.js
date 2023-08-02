@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import RootLayout from "@/components/Layouts/RootLayout";
 import Loader from "@/components/UI/Loader";
 import { useGetPowerSupplyProductQuery } from "@/redux/features/products/productsApi";
