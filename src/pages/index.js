@@ -8,10 +8,6 @@ import { useGetProductsQuery } from "@/redux/features/products/productsApi";
 import Products from "@/components/UI/Products";
 
 const HomePage = () => {
-  const [user, loading, error] = useAuthState(auth);
-
-  const { data: session } = useSession();
-
   return (
     <div>
       <Head>

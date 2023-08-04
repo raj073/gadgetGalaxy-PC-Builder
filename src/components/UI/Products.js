@@ -1,9 +1,15 @@
 import { useGetProductsQuery } from "@/redux/features/products/productsApi";
 import React from "react";
+import Loader from "./Loader";
 import Product from "./Product";
 
 const Products = () => {
   const { data, isLoading } = useGetProductsQuery();
+
+  if (isLoading) {
+    return <Loader></Loader>;
+  }
+
   return (
     <div className="py-20 font-[Poppins]">
       <h1 className="text-center text-3xl text-sky-500 mb-5">
