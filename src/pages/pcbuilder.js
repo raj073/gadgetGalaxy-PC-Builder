@@ -7,6 +7,7 @@ import {
   useGetAddToBuildProductsPowerQuery,
   useGetAddToBuildProductsStorageDeviceQuery,
   useGetAddToBuildProductsMonitorQuery,
+  useDeleteAddToBuildProductMutation,
 } from "@/redux/features/products/productsApi";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -16,9 +17,14 @@ import { MdStorage, MdMonitor, MdImportantDevices } from "react-icons/md";
 import { AiOutlineCloseSquare } from "react-icons/ai";
 import { FcRating } from "react-icons/fc";
 import toast from "react-hot-toast";
+import { useEffect, useState } from "react";
 
 const PCBuilderPage = () => {
   const router = useRouter();
+
+  const [isButtonDisabled, setButtonDisabled] = useState(true);
+
+  const [deleteAddToBuildProduct] = useDeleteAddToBuildProductMutation();
 
   const { data: cpu } = useGetAddToBuildProductsCPUQuery();
 
@@ -32,10 +38,32 @@ const PCBuilderPage = () => {
 
   const { data: monitor } = useGetAddToBuildProductsMonitorQuery();
 
+  useEffect(() => {
+    const combinedLength =
+      cpu?.length +
+      motherboard?.length +
+      ram?.length +
+      power?.length +
+      storage?.length +
+      monitor?.length;
+
+    setButtonDisabled(combinedLength < 5 || combinedLength > 6);
+  }, [cpu, motherboard, ram, power, storage, monitor]);
+
+  console.log(isButtonDisabled);
+
   const handleCompleteBuild = () => {
     toast.success("Your Computer has been Built Successfully ", {
       position: "top-right",
     });
+  };
+
+  const handleDelete = (productId) => {
+    const options = {
+      id: productId,
+    };
+    console.log(options);
+    deleteAddToBuildProduct(options);
   };
 
   return (
@@ -95,12 +123,12 @@ const PCBuilderPage = () => {
                     <span className="ps-2 text-yellow-600">
                       {p?.individualRating}
                     </span>
-                    <Link
-                      href={`/`}
+                    <button
+                      onClick={() => handleDelete(p._id)}
                       className="ml-12 text-red-500 hover:text-red-800"
                     >
                       <AiOutlineCloseSquare size={30}></AiOutlineCloseSquare>
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -151,12 +179,12 @@ const PCBuilderPage = () => {
                     <span className="ps-2 text-yellow-600">
                       {p?.individualRating}
                     </span>
-                    <Link
-                      href={`/`}
+                    <button
+                      onClick={() => handleDelete(p._id)}
                       className="ml-12 text-red-500 hover:text-red-800"
                     >
                       <AiOutlineCloseSquare size={30}></AiOutlineCloseSquare>
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -207,12 +235,12 @@ const PCBuilderPage = () => {
                     <span className="ps-2 text-yellow-600">
                       {p?.individualRating}
                     </span>
-                    <Link
-                      href={`/`}
+                    <button
+                      onClick={() => handleDelete(p._id)}
                       className="ml-12 text-red-500 hover:text-red-800"
                     >
                       <AiOutlineCloseSquare size={30}></AiOutlineCloseSquare>
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -263,12 +291,12 @@ const PCBuilderPage = () => {
                     <span className="ps-2 text-yellow-600">
                       {p?.individualRating}
                     </span>
-                    <Link
-                      href={`/`}
+                    <button
+                      onClick={() => handleDelete(p._id)}
                       className="ml-12 text-red-500 hover:text-red-800"
                     >
                       <AiOutlineCloseSquare size={30}></AiOutlineCloseSquare>
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -320,12 +348,12 @@ const PCBuilderPage = () => {
                     <span className="ps-2 text-yellow-600">
                       {p?.individualRating}
                     </span>
-                    <Link
-                      href={`/`}
+                    <button
+                      onClick={() => handleDelete(p._id)}
                       className="ml-12 text-red-500 hover:text-red-800"
                     >
                       <AiOutlineCloseSquare size={30}></AiOutlineCloseSquare>
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -376,12 +404,12 @@ const PCBuilderPage = () => {
                     <span className="ps-2 text-yellow-600">
                       {p?.individualRating}
                     </span>
-                    <Link
-                      href={`/`}
+                    <button
+                      onClick={() => handleDelete(p._id)}
                       className="ml-12 text-red-500 hover:text-red-800"
                     >
                       <AiOutlineCloseSquare size={30}></AiOutlineCloseSquare>
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -393,6 +421,7 @@ const PCBuilderPage = () => {
           <div className="flex items-center justify-center">
             <button
               onClick={handleCompleteBuild}
+              disabled={isButtonDisabled}
               className="relative flex h-[50px] w-40 items-center justify-center overflow-hidden bg-blue-600 font-bold text-white shadow-2xl transition-all duration-300 before:absolute before:inset-0 before:border-0 before:border-white 
             before:duration-100 before:ease-linear hover:bg-white hover:text-blue-600 hover:shadow-blue-600 
             hover:before:border-[25px]"

@@ -87,6 +87,17 @@ const productsApi = api.injectEndpoints({
       query: () => ({ url: `/addtobuildMonitor` }),
       providesTags: ["updatedProduct"],
     }),
+
+    deleteAddToBuildProduct: builder.mutation({
+      query: ({ id }) => {
+        console.log("ID From Mutation:", id);
+        return {
+          url: `/addtobuild/${id}`,
+          method: "DELETE",
+        };
+      },
+      invalidatesTags: ["updatedProduct"],
+    }),
   }),
 });
 
@@ -108,4 +119,5 @@ export const {
   useGetAddToBuildProductsPowerQuery,
   useGetAddToBuildProductsStorageDeviceQuery,
   useGetAddToBuildProductsMonitorQuery,
+  useDeleteAddToBuildProductMutation,
 } = productsApi;
