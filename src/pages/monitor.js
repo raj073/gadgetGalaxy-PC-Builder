@@ -15,7 +15,7 @@ const MonitorPage = () => {
   return (
     <div className="py-20 font-[Poppins]">
       <h1 className="text-left md:ml-20 ml-20 text-3xl mt-5 text-sky-500 mb-5">
-        RAM Category Sections
+        Monitor Category Sections
       </h1>
       <hr className="mx-20 my-2" />
       <div className="min-h-screen flex justify-center items-center py-10">

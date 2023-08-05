@@ -7,21 +7,28 @@ import {
   useGetCPUProcessorProductQuery,
   usePostAddToBuildMutation,
 } from "@/redux/features/products/productsApi";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
 const BuilderCpuPage = () => {
   const { data, isLoading } = useGetCPUProcessorProductQuery();
 
+  const { data: session } = useSession();
+
   const router = useRouter();
 
   const [postAddToBuild] = usePostAddToBuildMutation();
 
-  const handleAddToBuilder = (product) => {
+  const handleAddToBuilder = async (product) => {
+    const isLoggedInUser = session?.user?.email;
+
+    const productWithUserEmail = {
+      ...product,
+      userEmail: isLoggedInUser,
+    };
+
+    await postAddToBuild({ data: productWithUserEmail });
     router.push(`/pcbuilder?productId=${product._id}`);
-    // router.push(
-    //   `/pcbuilder?product=${encodeURIComponent(JSON.stringify(product))}`
-    // );
-    postAddToBuild({ data: product });
   };
 
   if (isLoading) {

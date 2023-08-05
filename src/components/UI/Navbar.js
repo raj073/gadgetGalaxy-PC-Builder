@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import Link from "next/link";
-import { useAuth } from "@/contexts/AuthContext";
+
 import { useSignOut } from "react-firebase-hooks/auth";
 import auth from "@/firebase/firebase.auth";
 import toast from "react-hot-toast";
@@ -10,17 +10,12 @@ import { useSession, signOut as nextAuthSignOut } from "next-auth/react";
 
 const Navbar = () => {
   let [open, setOpen] = useState(false);
-  const { user } = useAuth();
 
   const { data: session } = useSession();
 
-  const isLoggedIn = user || session?.user;
+  const isLoggedIn = session?.user?.email;
 
   const router = useRouter();
-
-  const isGoogleLogin = session?.user;
-
-  const [firebaseSignOut, loading, error] = useSignOut(auth);
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -38,19 +33,11 @@ const Navbar = () => {
 
   const handleSignOut = async () => {
     try {
-      if (isGoogleLogin) {
-        await nextAuthSignOut();
-        toast.success("User Logged Out Successfully", {
-          position: "top-right",
-        });
-        router.push("/login");
-      } else {
-        await firebaseSignOut();
-        toast.success("User Logged Out Successfully", {
-          position: "top-right",
-        });
-        router.push("/login");
-      }
+      await nextAuthSignOut();
+      toast.success("User Logged Out Successfully", {
+        position: "top-right",
+      });
+      router.push("/login");
     } catch (error) {}
   };
 
@@ -187,14 +174,6 @@ const Navbar = () => {
               </Link>
             </li>
           )}
-          {/* <li className="md:ml-8 text-lg md:my-0 my-7">
-            <Link
-              href={"/signup"}
-              className="inline-block w-full rounded-sm px-6 py-2 text-base text-center bg-teal-600 text-black hover:bg-emerald-600-700 hover:text-white duration-300 font-primary"
-            >
-              Sign up
-            </Link>
-          </li> */}
 
           <Link href={`/pcbuilder`}>
             <button className="bg-indigo-600 text-white font-[Poppins] py-2 px-6 rounded md:ml-8 hover:bg-indigo-400 duration-500">

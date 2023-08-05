@@ -1,38 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#Application Name: Gadget Galaxy PC Builder
 
-## Getting Started
+#Live Frontend Website Link:
 
-First, run the development server:
+#Live Backend Link:https://gadget-galaxy-pc-builder-backend.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+#Frontend Github Repository Link:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#BackEnd Github Repository Link:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+#Features and Functionalities
+1: This is a clean and straightforward PC Builder website for PC parts and components
+2: There is a Navbar and Hero section or Banner where user will find the menus and category section
+3: Login Option is being found in navigation bar where user can sign in with the google and github social login provider to enable user authentication
+4: In Navbar, User can redirect PC Builder page to build the computer with various components
+5: There is 7 categories product component exist in Navbar
+6: Each Product Categories have Product Details where user can find all ther details about product
+7: PC Builder Page have 6 Categories component and Each PC Builder component card have an Add To Builder Button. After Clicking on this button Page will redirect the user to the PC Builder page, and added the selected component below. After adding at least 5 to 6 Components the user will be able to click on the Complete Build button.
+8:The entire application is responsive for both mobile and desktop devices to ensure the enjoyable user experience across all devices.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+#Tools and Technologies
+1: Authentication purpose we have used Next Auth and google firebase.
+2: Also, we have implemented react router dom, context api, private router etc.
+3: This is a single page application using Next js, react, tailwind, html, React Hook form
+4: For server side we have used Node and express js which have been deployed in vercel
+5: All the site’s part has been responsive
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+#Instructions for Fronted Github
+Step 1: Clone or download the repository;
+Step 2: Run npm install or npm i to install Node Modules
+Step 3: Run npm run dev to run the project in the development server;
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#Instructions for Backend Github
+Step 1: Clone or download the repository;
+Step 2: Run npm install or npm i to install Node Modules
+Step 3: Run node index.js or nodemon index.js to run the project in the development server;

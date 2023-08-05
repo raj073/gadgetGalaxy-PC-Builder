@@ -1,186 +1,90 @@
 import RootLayout from "@/components/Layouts/RootLayout";
-import auth from "@/firebase/firebase.auth";
-import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { useRouter } from "next/router";
+import { signIn, useSession } from "next-auth/react";
+import { useEffect } from "react";
 import toast from "react-hot-toast";
-import { useSession, signIn } from "next-auth/react";
 
 const LoginPage = () => {
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
+  // const handleGoogleSignIn = async () => {
+  //   await signIn("google", {
+  //     callbackUrl: "https://gadget-galaxy-pc-builder.vercel.app/",
+  //   });
+  // };
 
-  const router = useRouter();
-
-  const { data: session } = useSession();
-
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
-
-  const onSubmit = (data) => {
-    console.log("data:", data);
-    signInWithEmailAndPassword(data.email, data.password);
-    toast.success("User Logged In Successful", {
-      position: "top-right",
+  const handleGithubSignIn = async () => {
+    await signIn("github", {
+      callbackUrl: "https://gadget-galaxy-pc-builder.vercel.app/",
     });
-    router.push("/");
   };
-
   return (
-    <div className="flex flex-col items-center justify-center mt-24">
+    <div className="flex flex-col items-center justify-center mt-24 font-[Poppins]">
       <div className="flex flex-col bg-white shadow-xl px-4 sm:px-6 md:px-8 lg:px-20 py-8 rounded-md w-full max-w-md">
         <div className="font-medium text-center text-xl sm:text-2xl uppercase text-gray-800">
           Login To <br /> Gadget Galaxy PC Builder
         </div>
 
-        <button
-          onClick={() =>
-            signIn("google", {
-              callbackUrl: "http://localhost:3000/",
-            })
-          }
-          type="button"
-          className="py-2 px-4 mt-6 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
-        >
-          <svg
-            width="20"
-            height="20"
-            fill="currentColor"
-            className="mr-2"
-            viewBox="0 0 1792 1792"
-            xmlns="http://www.w3.org/2000/svg"
+        {/* <div className="flex flex-col items-center mt-10">
+          <button
+            onClick={handleGoogleSignIn}
+            className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-red-500 hover:bg-red-700 text-white flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline"
           >
-            <path d="M896 786h725q12 67 12 128 0 217-91 387.5t-259.5 266.5-386.5 96q-157 0-299-60.5t-245-163.5-163.5-245-60.5-299 60.5-299 163.5-245 245-163.5 299-60.5q300 0 515 201l-209 201q-123-119-306-119-129 0-238.5 65t-173.5 176.5-64 243.5 64 243.5 173.5 176.5 238.5 65q87 0 160-24t120-60 82-82 51.5-87 22.5-78h-436v-264z"></path>
-          </svg>
-          Sign in with Google
-        </button>
+            <div className="bg-white p-2 rounded-full">
+              <svg className="w-4" viewBox="0 0 533.5 544.3">
+                <path
+                  d="M533.5 278.4c0-18.5-1.5-37.1-4.7-55.3H272.1v104.8h147c-6.1 33.8-25.7 63.7-54.4 82.7v68h87.7c51.5-47.4 81.1-117.4 81.1-200.2z"
+                  fill="#4285f4"
+                />
+                <path
+                  d="M272.1 544.3c73.4 0 135.3-24.1 180.4-65.7l-87.7-68c-24.4 16.6-55.9 26-92.6 26-71 0-131.2-47.9-152.8-112.3H28.9v70.1c46.2 91.9 140.3 149.9 243.2 149.9z"
+                  fill="#34a853"
+                />
+                <path
+                  d="M119.3 324.3c-11.4-33.8-11.4-70.4 0-104.2V150H28.9c-38.6 76.9-38.6 167.5 0 244.4l90.4-70.1z"
+                  fill="#fbbc04"
+                />
+                <path
+                  d="M272.1 107.7c38.8-.6 76.3 14 104.4 40.8l77.7-77.7C405 24.6 339.7-.8 272.1 0 169.2 0 75.1 58 28.9 150l90.4 70.1c21.5-64.5 81.8-112.4 152.8-112.4z"
+                  fill="#ea4335"
+                />
+              </svg>
+            </div>
+            <span className="ml-4">Sign In with Google</span>
+          </button>
+        </div> */}
 
         <div className="relative mt-10 h-px bg-gray-300">
           <div className="absolute left-0 top-0 flex justify-center w-full -mt-2">
-            <span className="bg-white px-4 text-xs text-gray-500 uppercase">
-              Or Login With Email
+            <span className="bg-white px-4 text-sm text-gray-500 uppercase">
+              Login
             </span>
           </div>
         </div>
-        <div className="mt-10">
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="flex flex-col mb-4">
-              <label
-                htmlFor="email"
-                className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
-              >
-                E-Mail Address:
-              </label>
-              <div className="relative">
-                <div className="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
-                  <svg
-                    className="h-6 w-6"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
-                  </svg>
-                </div>
 
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
-                  placeholder="E-Mail Address"
-                  {...register("email", { required: true })}
-                />
-              </div>
-            </div>
-            <div className="flex flex-col mb-4">
-              <label
-                htmlFor="password"
-                className="mb-1 text-xs sm:text-sm tracking-wide text-gray-600"
-              >
-                Password:
-              </label>
-              <div className="relative">
-                <div className="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400">
-                  <span>
-                    <svg
-                      className="h-6 w-6"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                    </svg>
-                  </span>
-                </div>
-
-                <input
-                  id="password"
-                  type="password"
-                  name="password"
-                  className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
-                  placeholder="Password"
-                  {...register("password", { required: true })}
-                />
-              </div>
-            </div>
-
-            <div className="flex w-full">
-              <button
-                type="submit"
-                className="flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-600 hover:bg-blue-700 rounded py-2 w-full transition duration-150 ease-in"
-              >
-                <span className="mr-2 uppercase">Login</span>
-                <span>
-                  <svg
-                    className="h-6 w-6"
-                    fill="none"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </span>
-              </button>
-            </div>
-          </form>
-        </div>
-        <div className="flex justify-center items-center mt-6">
-          <Link
-            href="/signup"
-            className="inline-flex items-center font-bold text-blue-500 hover:text-blue-700 text-xs text-center"
+        <div className="flex flex-col items-center mt-10">
+          <button
+            onClick={handleGithubSignIn}
+            className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-green-300 hover:bg-green-600 text-gray-800 
+            hover:text-white flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline"
           >
-            <span>
+            <div className="bg-white p-2 rounded-full">
               <svg
-                className="h-6 w-6"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+                className="w-5"
+                viewBox="0 0 26 26"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12C0 17.77 3.58 22.72 8.55 23.89C9.15 23.97 9.3 23.64 9.3 23.4V20.84C5.3 21.3 4.54 19.4 4.54 19.4C4.13 18.5 3.41 18.2 3.41 18.2C2.47 17.57 3.56 17.58 3.56 17.58C4.67 17.61 5.12 18.8 5.12 18.8C5.95 20.49 7.77 19.96 8.8 19.6C8.94 19.13 9.38 18.9 9.85 18.7C7.04 18.49 4.34 17.36 4.34 12.79C4.34 11.27 5.06 10.04 6.32 9.33C6.15 9.02 5.74 7.77 6.34 5.86C6.34 5.86 7.29 5.63 9.3 6.95C10.56 6.67 11.82 6.53 13.09 6.53C14.36 6.53 15.63 6.67 16.9 6.95C18.91 5.63 19.86 5.86 19.86 5.86C20.46 7.77 20.05 9.02 19.88 9.33C21.14 10.04 21.86 11.27 21.86 12.79C21.86 17.38 19.16 18.49 16.34 18.7C16.8 18.95 17.25 19.46 17.25 20.6V23.41C17.25 23.65 17.4 23.97 18 23.89C22.95 22.72 26.54 17.77 26.54 12C26.54 5.37 21.17 0 14.54 0H12Z"
+                  fill="#211F1F"
+                />
               </svg>
-            </span>
-            <span className="ml-2">
-              You dont have an account? Please Sign up
-            </span>
-          </Link>
+            </div>
+            <span className="ml-4">Sign In with Github</span>
+          </button>
+        </div>
+
+        <div className="relative mt-10 h-px bg-gray-300">
+          <div className="absolute left-0 top-0 flex justify-center w-full -mt-2">
+            <span className="bg-white px-4 text-sm text-gray-500 uppercase"></span>
+          </div>
         </div>
       </div>
     </div>

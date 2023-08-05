@@ -1,11 +1,13 @@
+import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { RxDoubleArrowUp } from "react-icons/rx";
 
 const Footer = () => {
+  const { data: session } = useSession();
+  const isLoggedIn = session?.user?.email;
   return (
     <footer
       aria-label="Site Footer"
-      className="bg-gray-400 mt-20 font-[Poppins]"
+      className="bg-gray-900 mt-20 font-[Poppins]"
     >
       <div className="relative mx-auto max-w-screen-xl px-4 py-5 sm:px-6 lg:px-8 lg:pt-16">
         <div className="lg:flex lg:items-end lg:justify-between">
@@ -39,12 +41,25 @@ const Footer = () => {
 
               <li>
                 <Link
-                  href={"/login"}
+                  href={"/pcbuilder"}
                   className="text-white transition hover:text-gray-700/75"
                 >
-                  Login
+                  PC Builder
                 </Link>
               </li>
+
+              {!isLoggedIn ? (
+                <li>
+                  <Link
+                    href={"/login"}
+                    className="text-white transition hover:text-gray-700/75"
+                  >
+                    Login
+                  </Link>
+                </li>
+              ) : (
+                <></>
+              )}
             </ul>
           </nav>
         </div>

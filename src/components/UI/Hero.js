@@ -25,7 +25,7 @@ const Hero = () => {
               Get Started
             </a>
             <Link
-              href="/"
+              href="/pcbuilder"
               className="inline-flex items-center justify-center w-full px-8 py-3 text-lg font-bold text-gray-900 hover:text-white transition-all duration-200 bg-gray-100 border-2 border-gray-900 sm:w-auto rounded-none hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
               role="button"
             >

@@ -10,18 +10,16 @@ import {
   useDeleteAddToBuildProductMutation,
 } from "@/redux/features/products/productsApi";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { BsCpu, BsMotherboard, BsMemory } from "react-icons/bs";
 import { GiPowerGenerator } from "react-icons/gi";
-import { MdStorage, MdMonitor, MdImportantDevices } from "react-icons/md";
+import { MdStorage, MdMonitor } from "react-icons/md";
 import { AiOutlineCloseSquare } from "react-icons/ai";
 import { FcRating } from "react-icons/fc";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
 
 const PCBuilderPage = () => {
-  const router = useRouter();
-
   const [isButtonDisabled, setButtonDisabled] = useState(true);
 
   const [deleteAddToBuildProduct] = useDeleteAddToBuildProductMutation();
@@ -38,19 +36,28 @@ const PCBuilderPage = () => {
 
   const { data: monitor } = useGetAddToBuildProductsMonitorQuery();
 
+  const { data: session } = useSession();
+
+  const isLoggedInUser = session?.user?.email;
+
   useEffect(() => {
     const combinedLength =
-      cpu?.length +
-      motherboard?.length +
-      ram?.length +
-      power?.length +
-      storage?.length +
-      monitor?.length;
+      cpu?.data?.length +
+      motherboard?.data?.length +
+      ram?.data?.length +
+      power?.data?.length +
+      storage?.data?.length +
+      monitor?.data?.length;
 
     setButtonDisabled(combinedLength < 5 || combinedLength > 6);
-  }, [cpu, motherboard, ram, power, storage, monitor]);
-
-  console.log(isButtonDisabled);
+  }, [
+    cpu?.data,
+    motherboard?.data,
+    ram?.data,
+    power?.data,
+    storage?.data,
+    monitor?.data,
+  ]);
 
   const handleCompleteBuild = () => {
     toast.success("Your Computer has been Built Successfully ", {
@@ -99,39 +106,47 @@ const PCBuilderPage = () => {
 
           {cpu?.data.map((p) => (
             <div key={p._id} className="mt-5">
-              <div className="flex justify-start">
-                <img className="w-14 h-14" src={p?.image} alt="Image" />
-                <div className="ps-3">
-                  <div
-                    className={`flex ${
-                      window.innerWidth >= 1024
-                        ? "justify-between"
-                        : "justify-start"
-                    } items-center sm:items-start text-base font-semibold flex-col lg:flex-row`}
-                  >
-                    <h1 className="text-orange-700">{p?.category}</h1>
-                    <h1>{p?.status}</h1>
+              {p.userEmail === isLoggedInUser ? (
+                <>
+                  <div className="flex justify-start">
+                    <img className="w-14 h-14" src={p?.image} alt="Image" />
+                    <div className="ps-3">
+                      <div
+                        className={`flex ${
+                          window.innerWidth >= 1024
+                            ? "justify-between"
+                            : "justify-start"
+                        } items-center sm:items-start text-base font-semibold flex-col lg:flex-row`}
+                      >
+                        <h1 className="text-orange-700">{p?.category}</h1>
+                        <h1>{p?.status}</h1>
+                      </div>
+                      <div className="text-base font-semibold">{p?.name}</div>
+                    </div>
+                    <div className="ps-10">
+                      <h1 className="text-lg font-bold">${p?.price}</h1>
+                    </div>
+                    <div className="ps-10">
+                      <div className="flex items-center text-base font-bold">
+                        <FcRating></FcRating>
+                        <span className="ps-2 text-yellow-600">
+                          {p?.individualRating}
+                        </span>
+                        <button
+                          onClick={() => handleDelete(p._id)}
+                          className="ml-12 text-red-500 hover:text-red-800"
+                        >
+                          <AiOutlineCloseSquare
+                            size={30}
+                          ></AiOutlineCloseSquare>
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-base font-semibold">{p?.name}</div>
-                </div>
-                <div className="ps-10">
-                  <h1 className="text-lg font-bold">${p?.price}</h1>
-                </div>
-                <div className="ps-10">
-                  <div className="flex items-center text-base font-bold">
-                    <FcRating></FcRating>
-                    <span className="ps-2 text-yellow-600">
-                      {p?.individualRating}
-                    </span>
-                    <button
-                      onClick={() => handleDelete(p._id)}
-                      className="ml-12 text-red-500 hover:text-red-800"
-                    >
-                      <AiOutlineCloseSquare size={30}></AiOutlineCloseSquare>
-                    </button>
-                  </div>
-                </div>
-              </div>
+                </>
+              ) : (
+                <></>
+              )}
             </div>
           ))}
 
@@ -155,39 +170,47 @@ const PCBuilderPage = () => {
 
           {motherboard?.data.map((p) => (
             <div key={p._id} className="mt-5">
-              <div className="flex justify-start">
-                <img className="w-14 h-14" src={p?.image} alt="Image" />
-                <div className="ps-3">
-                  <div
-                    className={`flex ${
-                      window.innerWidth >= 1024
-                        ? "justify-between"
-                        : "justify-start"
-                    } items-center sm:items-start text-base font-semibold flex-col lg:flex-row`}
-                  >
-                    <h1 className="text-orange-700">{p?.category}</h1>
-                    <h1>{p?.status}</h1>
+              {p.userEmail === isLoggedInUser ? (
+                <>
+                  <div className="flex justify-start">
+                    <img className="w-14 h-14" src={p?.image} alt="Image" />
+                    <div className="ps-3">
+                      <div
+                        className={`flex ${
+                          window.innerWidth >= 1024
+                            ? "justify-between"
+                            : "justify-start"
+                        } items-center sm:items-start text-base font-semibold flex-col lg:flex-row`}
+                      >
+                        <h1 className="text-orange-700">{p?.category}</h1>
+                        <h1>{p?.status}</h1>
+                      </div>
+                      <div className="text-base font-semibold">{p?.name}</div>
+                    </div>
+                    <div className="ps-10">
+                      <h1 className="text-lg font-bold">${p?.price}</h1>
+                    </div>
+                    <div className="ps-10">
+                      <div className="flex items-center text-base font-bold">
+                        <FcRating></FcRating>
+                        <span className="ps-2 text-yellow-600">
+                          {p?.individualRating}
+                        </span>
+                        <button
+                          onClick={() => handleDelete(p._id)}
+                          className="ml-12 text-red-500 hover:text-red-800"
+                        >
+                          <AiOutlineCloseSquare
+                            size={30}
+                          ></AiOutlineCloseSquare>
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-base font-semibold">{p?.name}</div>
-                </div>
-                <div className="ps-10">
-                  <h1 className="text-lg font-bold">${p?.price}</h1>
-                </div>
-                <div className="ps-10">
-                  <div className="flex items-center text-base font-bold">
-                    <FcRating></FcRating>
-                    <span className="ps-2 text-yellow-600">
-                      {p?.individualRating}
-                    </span>
-                    <button
-                      onClick={() => handleDelete(p._id)}
-                      className="ml-12 text-red-500 hover:text-red-800"
-                    >
-                      <AiOutlineCloseSquare size={30}></AiOutlineCloseSquare>
-                    </button>
-                  </div>
-                </div>
-              </div>
+                </>
+              ) : (
+                <></>
+              )}
             </div>
           ))}
 
@@ -211,39 +234,47 @@ const PCBuilderPage = () => {
 
           {ram?.data.map((p) => (
             <div key={p._id} className="mt-5">
-              <div className="flex justify-start">
-                <img className="w-14 h-14" src={p?.image} alt="Image" />
-                <div className="ps-3">
-                  <div
-                    className={`flex ${
-                      window.innerWidth >= 1024
-                        ? "justify-between"
-                        : "justify-start"
-                    } items-center sm:items-start text-base font-semibold flex-col lg:flex-row`}
-                  >
-                    <h1 className="text-orange-700">{p?.category}</h1>
-                    <h1>{p?.status}</h1>
+              {p.userEmail === isLoggedInUser ? (
+                <>
+                  <div className="flex justify-start">
+                    <img className="w-14 h-14" src={p?.image} alt="Image" />
+                    <div className="ps-3">
+                      <div
+                        className={`flex ${
+                          window.innerWidth >= 1024
+                            ? "justify-between"
+                            : "justify-start"
+                        } items-center sm:items-start text-base font-semibold flex-col lg:flex-row`}
+                      >
+                        <h1 className="text-orange-700">{p?.category}</h1>
+                        <h1>{p?.status}</h1>
+                      </div>
+                      <div className="text-base font-semibold">{p?.name}</div>
+                    </div>
+                    <div className="ps-10">
+                      <h1 className="text-lg font-bold">${p?.price}</h1>
+                    </div>
+                    <div className="ps-10">
+                      <div className="flex items-center text-base font-bold">
+                        <FcRating></FcRating>
+                        <span className="ps-2 text-yellow-600">
+                          {p?.individualRating}
+                        </span>
+                        <button
+                          onClick={() => handleDelete(p._id)}
+                          className="ml-12 text-red-500 hover:text-red-800"
+                        >
+                          <AiOutlineCloseSquare
+                            size={30}
+                          ></AiOutlineCloseSquare>
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-base font-semibold">{p?.name}</div>
-                </div>
-                <div className="ps-10">
-                  <h1 className="text-lg font-bold">${p?.price}</h1>
-                </div>
-                <div className="ps-10">
-                  <div className="flex items-center text-base font-bold">
-                    <FcRating></FcRating>
-                    <span className="ps-2 text-yellow-600">
-                      {p?.individualRating}
-                    </span>
-                    <button
-                      onClick={() => handleDelete(p._id)}
-                      className="ml-12 text-red-500 hover:text-red-800"
-                    >
-                      <AiOutlineCloseSquare size={30}></AiOutlineCloseSquare>
-                    </button>
-                  </div>
-                </div>
-              </div>
+                </>
+              ) : (
+                <></>
+              )}
             </div>
           ))}
 
@@ -267,39 +298,47 @@ const PCBuilderPage = () => {
 
           {power?.data.map((p) => (
             <div key={p._id} className="mt-5">
-              <div className="flex justify-start">
-                <img className="w-14 h-14" src={p?.image} alt="Image" />
-                <div className="ps-3">
-                  <div
-                    className={`flex ${
-                      window.innerWidth >= 1024
-                        ? "justify-between"
-                        : "justify-start"
-                    } items-center sm:items-start text-base font-semibold flex-col lg:flex-row`}
-                  >
-                    <h1 className="text-orange-700">{p?.category}</h1>
-                    <h1>{p?.status}</h1>
+              {p.userEmail === isLoggedInUser ? (
+                <>
+                  <div className="flex justify-start">
+                    <img className="w-14 h-14" src={p?.image} alt="Image" />
+                    <div className="ps-3">
+                      <div
+                        className={`flex ${
+                          window.innerWidth >= 1024
+                            ? "justify-between"
+                            : "justify-start"
+                        } items-center sm:items-start text-base font-semibold flex-col lg:flex-row`}
+                      >
+                        <h1 className="text-orange-700">{p?.category}</h1>
+                        <h1>{p?.status}</h1>
+                      </div>
+                      <div className="text-base font-semibold">{p?.name}</div>
+                    </div>
+                    <div className="ps-10">
+                      <h1 className="text-lg font-bold">${p?.price}</h1>
+                    </div>
+                    <div className="ps-10">
+                      <div className="flex items-center text-base font-bold">
+                        <FcRating></FcRating>
+                        <span className="ps-2 text-yellow-600">
+                          {p?.individualRating}
+                        </span>
+                        <button
+                          onClick={() => handleDelete(p._id)}
+                          className="ml-12 text-red-500 hover:text-red-800"
+                        >
+                          <AiOutlineCloseSquare
+                            size={30}
+                          ></AiOutlineCloseSquare>
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-base font-semibold">{p?.name}</div>
-                </div>
-                <div className="ps-10">
-                  <h1 className="text-lg font-bold">${p?.price}</h1>
-                </div>
-                <div className="ps-10">
-                  <div className="flex items-center text-base font-bold">
-                    <FcRating></FcRating>
-                    <span className="ps-2 text-yellow-600">
-                      {p?.individualRating}
-                    </span>
-                    <button
-                      onClick={() => handleDelete(p._id)}
-                      className="ml-12 text-red-500 hover:text-red-800"
-                    >
-                      <AiOutlineCloseSquare size={30}></AiOutlineCloseSquare>
-                    </button>
-                  </div>
-                </div>
-              </div>
+                </>
+              ) : (
+                <></>
+              )}
             </div>
           ))}
 
@@ -324,39 +363,47 @@ const PCBuilderPage = () => {
 
           {storage?.data.map((p) => (
             <div key={p._id} className="mt-5">
-              <div className="flex justify-start">
-                <img className="w-14 h-14" src={p?.image} alt="Image" />
-                <div className="ps-3">
-                  <div
-                    className={`flex ${
-                      window.innerWidth >= 1024
-                        ? "justify-between"
-                        : "justify-start"
-                    } items-center sm:items-start text-base font-semibold flex-col lg:flex-row`}
-                  >
-                    <h1 className="text-orange-700">{p?.category}</h1>
-                    <h1>{p?.status}</h1>
+              {p.userEmail === isLoggedInUser ? (
+                <>
+                  <div className="flex justify-start">
+                    <img className="w-14 h-14" src={p?.image} alt="Image" />
+                    <div className="ps-3">
+                      <div
+                        className={`flex ${
+                          window.innerWidth >= 1024
+                            ? "justify-between"
+                            : "justify-start"
+                        } items-center sm:items-start text-base font-semibold flex-col lg:flex-row`}
+                      >
+                        <h1 className="text-orange-700">{p?.category}</h1>
+                        <h1>{p?.status}</h1>
+                      </div>
+                      <div className="text-base font-semibold">{p?.name}</div>
+                    </div>
+                    <div className="ps-10">
+                      <h1 className="text-lg font-bold">${p?.price}</h1>
+                    </div>
+                    <div className="ps-10">
+                      <div className="flex items-center text-base font-bold">
+                        <FcRating></FcRating>
+                        <span className="ps-2 text-yellow-600">
+                          {p?.individualRating}
+                        </span>
+                        <button
+                          onClick={() => handleDelete(p._id)}
+                          className="ml-12 text-red-500 hover:text-red-800"
+                        >
+                          <AiOutlineCloseSquare
+                            size={30}
+                          ></AiOutlineCloseSquare>
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-base font-semibold">{p?.name}</div>
-                </div>
-                <div className="ps-10">
-                  <h1 className="text-lg font-bold">${p?.price}</h1>
-                </div>
-                <div className="ps-10">
-                  <div className="flex items-center text-base font-bold">
-                    <FcRating></FcRating>
-                    <span className="ps-2 text-yellow-600">
-                      {p?.individualRating}
-                    </span>
-                    <button
-                      onClick={() => handleDelete(p._id)}
-                      className="ml-12 text-red-500 hover:text-red-800"
-                    >
-                      <AiOutlineCloseSquare size={30}></AiOutlineCloseSquare>
-                    </button>
-                  </div>
-                </div>
-              </div>
+                </>
+              ) : (
+                <></>
+              )}
             </div>
           ))}
 
@@ -380,39 +427,47 @@ const PCBuilderPage = () => {
 
           {monitor?.data.map((p) => (
             <div key={p._id} className="mt-5">
-              <div className="flex justify-start">
-                <img className="w-14 h-14" src={p?.image} alt="Image" />
-                <div className="ps-3">
-                  <div
-                    className={`flex ${
-                      window.innerWidth >= 1024
-                        ? "justify-between"
-                        : "justify-start"
-                    } items-center sm:items-start text-base font-semibold flex-col lg:flex-row`}
-                  >
-                    <h1 className="text-orange-700">{p?.category}</h1>
-                    <h1>{p?.status}</h1>
+              {p.userEmail === isLoggedInUser ? (
+                <>
+                  <div className="flex justify-start">
+                    <img className="w-14 h-14" src={p?.image} alt="Image" />
+                    <div className="ps-3">
+                      <div
+                        className={`flex ${
+                          window.innerWidth >= 1024
+                            ? "justify-between"
+                            : "justify-start"
+                        } items-center sm:items-start text-base font-semibold flex-col lg:flex-row`}
+                      >
+                        <h1 className="text-orange-700">{p?.category}</h1>
+                        <h1>{p?.status}</h1>
+                      </div>
+                      <div className="text-base font-semibold">{p?.name}</div>
+                    </div>
+                    <div className="ps-10">
+                      <h1 className="text-lg font-bold">${p?.price}</h1>
+                    </div>
+                    <div className="ps-10">
+                      <div className="flex items-center text-base font-bold">
+                        <FcRating></FcRating>
+                        <span className="ps-2 text-yellow-600">
+                          {p?.individualRating}
+                        </span>
+                        <button
+                          onClick={() => handleDelete(p._id)}
+                          className="ml-12 text-red-500 hover:text-red-800"
+                        >
+                          <AiOutlineCloseSquare
+                            size={30}
+                          ></AiOutlineCloseSquare>
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                  <div className="text-base font-semibold">{p?.name}</div>
-                </div>
-                <div className="ps-10">
-                  <h1 className="text-lg font-bold">${p?.price}</h1>
-                </div>
-                <div className="ps-10">
-                  <div className="flex items-center text-base font-bold">
-                    <FcRating></FcRating>
-                    <span className="ps-2 text-yellow-600">
-                      {p?.individualRating}
-                    </span>
-                    <button
-                      onClick={() => handleDelete(p._id)}
-                      className="ml-12 text-red-500 hover:text-red-800"
-                    >
-                      <AiOutlineCloseSquare size={30}></AiOutlineCloseSquare>
-                    </button>
-                  </div>
-                </div>
-              </div>
+                </>
+              ) : (
+                <></>
+              )}
             </div>
           ))}
 
@@ -426,7 +481,9 @@ const PCBuilderPage = () => {
             before:duration-100 before:ease-linear hover:bg-white hover:text-blue-600 hover:shadow-blue-600 
             hover:before:border-[25px]"
             >
-              <span className="relative z-10">Complete Build</span>
+              <span className="relative z-10">
+                {isButtonDisabled ? "Add at Least 5 Product" : "Complete Build"}
+              </span>
             </button>
           </div>
         </div>

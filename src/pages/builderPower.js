@@ -5,18 +5,28 @@ import {
   useGetPowerSupplyProductQuery,
   usePostAddToBuildMutation,
 } from "@/redux/features/products/productsApi";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 
 const BuilderPowerSupplyPage = () => {
   const { data, isLoading } = useGetPowerSupplyProductQuery();
 
+  const { data: session } = useSession();
+
   const router = useRouter();
 
   const [postAddToBuild] = usePostAddToBuildMutation();
 
-  const handleAddToBuilder = (product) => {
+  const handleAddToBuilder = async (product) => {
+    const isLoggedInUser = session?.user?.email;
+
+    const productWithUserEmail = {
+      ...product,
+      userEmail: isLoggedInUser,
+    };
+
+    await postAddToBuild({ data: productWithUserEmail });
     router.push(`/pcbuilder?productId=${product._id}`);
-    postAddToBuild({ data: product });
   };
 
   if (isLoading) {
