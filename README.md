@@ -2,7 +2,7 @@
 
 #Live Frontend Website Link: https://gadget-galaxy-pc-builder.vercel.app/
 
-#Live Backend Link:https://gadget-galaxy-pc-builder-backend.vercel.app/
+#Live Backend Link: https://gadget-galaxy-pc-builder-backend.vercel.app/
 
 #Frontend Github Repository Link: https://github.com/raj073/gadgetGalaxy-PC-Builder
 
